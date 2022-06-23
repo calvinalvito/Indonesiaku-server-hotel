@@ -15,6 +15,7 @@ npm install @date-io/date-fns date-fns
 ###- Back-End : 
 npm install connect-flash express-session method-override
 npm install multer fs-extra
+npm install mocha chai chai-http
 
 ## Available Scripts
 

@@ -11,12 +11,12 @@ module.exports = {
     try {
       const mostPicked = await Item.find()
         .select('_id title country city price unit imageId')
-        .limit(5)
+        .limit(100)
         .populate({ path: 'imageId', select: '_id imageUrl' })
 
       const category = await Category.find()
         .select('_id name')
-        .limit(3)
+        .limit(100)
         .populate({
           path: 'itemId',
           select: '_id title country city isPopular  imageId',
@@ -81,20 +81,9 @@ module.exports = {
 
       const bank = await Bank.find();
 
-      const testimonial = {
-        _id: "asd1293uasdads1",
-        imageUrl: "images/testimonial1.jpg",
-        name: "Happy Family",
-        rate: 4.55,
-        content: "What a great trip with my family and I should try again next time soon ...",
-        familyName: "Angga",
-        familyOccupation: "Product Designer"
-      }
-
       res.status(200).json({
         ...item._doc,
-        bank,
-        testimonial
+        bank
       })
 
     } catch (error) {
@@ -106,7 +95,6 @@ module.exports = {
     const {
       idItem,
       duration,
-      // price,
       bookingStartDate,
       bookingEndDate,
       firstName,
@@ -126,7 +114,6 @@ module.exports = {
     if (
       idItem === undefined ||
       duration === undefined ||
-      // price === undefined ||
       bookingStartDate === undefined ||
       bookingEndDate === undefined ||
       firstName === undefined ||
