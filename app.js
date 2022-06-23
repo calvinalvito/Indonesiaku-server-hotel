@@ -9,7 +9,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/db_staycasion', {
+mongoose.connect('mongodb+srv://adminshotel:front-enddev19@cluster0.gmy72.mongodb.net/db_hotel?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
