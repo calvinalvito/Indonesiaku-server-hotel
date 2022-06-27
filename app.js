@@ -7,6 +7,7 @@ var logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
+var cors = require('cors');
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://adminshotel:front-enddev19@cluster0.gmy72.mongodb.net/db_hotel?retryWrites=true&w=majority', {
@@ -20,7 +21,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
 const apiRouter = require('./routes/api');
-
+app.use(cors());
 var app = express();
 
 // view engine setup
